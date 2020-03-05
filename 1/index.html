@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        display: block;
+      }
+    </style>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <meta charset="utf-8" />
+  </head> 
+  <body>
+    <script>
+
+    /*
+
+      ###      #####    #####    #####  
+      #  #     #          #      #   #
+      #   #    #          #      #   #
+      #  #     #          #      #   #
+      ###      #####      #      #   #
+      #  #     #          #      #   #
+      #   #    #          #      #   #
+      #   #    #          #      #   #
+      #   #    #####      #      #####
+      
+      ALL YOU NEED IS CODE
+
+      Autor: Michael Hurtado
+      Año: 2020
+      
+    */
+
+    var passInput;
+    var result;
+    var button;
+    let img;
+    let link;
+    function preload() {
+      img = loadImage('fondo.jpg');
+    }
+    function setup() { 
+      createCanvas(windowWidth, windowHeight);
+      image(img,0,0,width,height);
+      textSize(18);
+      //stroke(255);
+      fill(0); 
+      text("Enter password:", 30, 80); 
+      passInput = createInput('', 'password'); 
+      passInput.position(30, 100); 
+      button = createButton("Sign Up");
+      button.mousePressed(submit);
+      button.position(205, 100); 
+      result = createElement("H2","");
+      result.position(30,150);
+      result.style('color','#ffffff');
+    } 
+
+    function draw(){
+      result.style('font-size', mouseX + 'px');
+    }
+
+    function submit(){
+      if(passInput.value()=="e=mc2"){
+        result.html("Password correcto");
+        link=createA('http://CheckEA.github.io/retoaleph/123456789/index.html', 'link');
+        link.position(random(width),random(200,height));
+      }
+      else{
+        result.html("Password incorrecto");
+      }
+    }
+
+    </script>
+  </body>
+</html>
